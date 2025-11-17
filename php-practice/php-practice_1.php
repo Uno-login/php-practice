@@ -4,9 +4,9 @@ $name = "安藤";
 echo "私の名前は「" . $name . "」です。";
 
 // Q2 四則演算
-$times = 5*4;
-echo $times . "\n";
-echo $times / 2;
+$num = 5*4;
+echo $num . "\n";
+echo $num / 2;
 
 // Q3 日付操作
 date_default_timezone_set('Asia/Tokyo');
@@ -53,8 +53,8 @@ if ($pref === "埼玉県") {
 }
 
 // Q9 連想配列-3
-$kanto_prefs["愛知県"] = "名古屋市";
-$kanto_prefs["大阪府"] = "大阪市";
+$kanto_capital["愛知県"] = "名古屋市";
+$kanto_capital["大阪府"] = "大阪市";
 
 foreach ($kanto_capital as $pref => $capital) {
 
