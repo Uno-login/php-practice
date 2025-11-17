@@ -13,16 +13,12 @@ date_default_timezone_set('Asia/Tokyo');
 echo "現在時刻は、" . date('Y年m月d日 H時i分s秒') . "です。";
 
 // Q4 条件分岐-1 if文
-$device ="mac";
+$device = "mac";
 
-if ($device == "windows"){
-    echo "使用OSは、windowsです。";
+if ($device === "mac" || $device === "windows") {
+    echo "使用OSは、{$device} です。";
 } else {
-    if ($device == 'mac'){
-        echo "使用のOSは、macです。";
-    } else {
-        echo "どちらでもありません。";
-    }
+    echo "どちらでもありません。";
 }
 
 // Q5 条件分岐-2 三項演算子
@@ -30,7 +26,7 @@ $age = 23;
 echo ($age < 18) ? "未成年です。" : "成人です。";
 
 // Q6 配列
-$kanto = ["東京都", "群馬県", "栃木県", "千葉県"];
+$kanto = ["東京都", "群馬県", "栃木県", "千葉県","茨城県","埼玉県","神奈川県"];
 
 echo $kanto[2] . "と" .$kanto[3] . "は関東地方の都道府県です。";
 
@@ -52,17 +48,20 @@ foreach ($kanto_capital as $capital_city) {
 // Q8 連想配列-2
 $pref = "埼玉県";
 
-if ($pref == "埼玉県") {
+if ($pref === "埼玉県") {
     echo $pref . "の県庁所在地は、" . $kanto_capital[$pref] . "です。";
 }
 
 // Q9 連想配列-3
+$kanto_prefs["愛知県"] = "名古屋市";
+$kanto_prefs["大阪府"] = "大阪市";
+
 foreach ($kanto_capital as $pref => $capital) {
 
  if (in_array($pref, ["東京都", "神奈川県", "千葉県", "埼玉県", "栃木県", "群馬県", "茨城県"])) {
-        echo $pref . "の県庁所在地は、" . $capital . "です。\n";
+        echo $pref . "の県庁所在地は、" . $capital . "です。"."\n";
     } else {
-        echo $pref . "は関東地方ではありません。\n";
+        echo $pref . "は関東地方ではありません。"."\n";
     }
 }
 
@@ -80,8 +79,7 @@ echo hello("安藤") . "\n";
  }
 
  $price = 1000;
- $taxInPrice = calcTaxInPrice($price); 
- 
+ $taxInPrice = calcTaxInPrice($price);
  echo "$price" . "円の商品の税込価格は" . $taxInPrice . "円です。";
 
 // Q12 関数とif文
@@ -92,6 +90,7 @@ function distinguishNum($number) {
         return $number . "は奇数です。";
     }
 }
+
 echo distinguishNum(11) . "\n";
 echo distinguishNum(24) . "\n";
 
@@ -116,7 +115,8 @@ function evaluateGrade($score) {
             break;
     }
 }
-echo evaluateGrade('A') . "\n";
-echo evaluateGrade('Z') . "\n";
+
+echo evaluateGrade("A") . "\n";
+echo evaluateGrade("Z") . "\n";
 
 ?>
